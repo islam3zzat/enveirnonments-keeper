@@ -1,0 +1,28 @@
+.enveironments-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  overflow: scroll;
+  border: 1px solid rgb(115, 123, 129);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.enveironment-link {
+  transition: font-size 250ms ease-in-out, transform 150ms ease;
+}
+
+.delete-enveironment {
+  display: inline-block;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: sans-serif;
+  cursor: pointer;
+  text-align: center;
+  transition: font-size 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
