@@ -1,0 +1,41 @@
+{
+    "name": "Enveirnonments keeper",
+    "version": "1.0",
+    "description": "Helps people working on multiple enveironments to switch to differen enveironments",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+        "scripts": [
+            "dist/background.js"
+        ],
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "16-icon.png",
+            "32": "32-icon.png",
+            "48": "48-icon.png",
+            "128": "128-icon.png"
+        }
+    },
+    "icons": {
+        "16": "16-icon.png",
+        "32": "32-icon.png",
+        "48": "48-icon.png",
+        "128": "128-icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "dist/content-script.js"
+            ]
+        }
+    ],
+    "manifest_version": 2
+}
