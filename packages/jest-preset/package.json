@@ -1,0 +1,20 @@
+{
+  "name": "@enveirnonments-keeper/jest-preset",
+  "version": "1.0.0",
+  "main": "jest-preset.js",
+  "module": "jest-preset.js",
+  "license": "MIT",
+  "dependencies": {
+    "@enveirnonments-keeper/babel-preset": "1.0.0",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.2.0",
+    "babel-jest": "^24.9.0",
+    "babel-preset-jest": "^24.9.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-watch-typeahead": "^0.4.0",
+    "jest-webextension-mock": "^3.5.0"
+  },
+  "devDependencies": {
+    "lerna": "^3.8.0"
+  }
+}
