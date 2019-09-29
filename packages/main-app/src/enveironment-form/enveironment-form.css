@@ -1,0 +1,43 @@
+:root {
+  --error-red: hsl(0, 80%, 57%);
+}
+.inputs-container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 4px;
+  height: 10rem;
+  align-items: start;
+}
+.inputs-error {
+  color: var(--error-red);
+}
+
+.form-input {
+  width: 20rem;
+  padding: 10px;
+  border-radius: 1rem;
+  border: 1px solid;
+}
+.form-input:focus {
+  border-color: hsla(225, 80%, 57%, 90%);
+  outline: none;
+}
+.form-input-error {
+  border-color: var(--error-red);
+}
+.submit-button {
+  cursor: pointer;
+  border-radius: 1rem;
+  background: hsla(225, 70%, 57%, 90%);
+  transition: background 400ms ease-in-out, transform 150ms ease;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  border: 0;
+  height: 2rem;
+  justify-self: start;
+}
+
+.submit-button:disabled {
+  background: hsla(225, 73%, 57%, 20%);
+}
