@@ -1,0 +1,49 @@
+# Cruft
+*~
+*#
+.#*
+.DS_Store
+
+
+# Test
+coverage
+.eslintcache
+
+# Logs
+*.log
+
+# npm & yarn
+node_modules/
+.npm
+.yarn-integrity
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# I18n
+_translations
+
+# Build
+dist
+dist-*
+packed-extension
+
+# Editor/IDE
+.idea
+.vscode
+!.vscode/settings.json
+
+# Testing Artifacts
+cypress/screenshots
+cypress/videos
+cypress/snapshots/__diff_output__
+e2e-output
+
+# Netlify
+netlify.toml
+
+# CI & Jest
+fail-tests-because-there-was-an-unhandled-rejection.lock
+
+# graphql-cli
+.graphqlconfig

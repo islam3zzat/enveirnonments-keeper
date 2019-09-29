@@ -1,0 +1,19 @@
+{
+  "name": "enveirnonments-keeper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "cd ./packages/main-app && npm test",
+    "test:watch": "cd ./packages/main-app && npm test",
+    "build": "cd ./packages/main-app && npm build",
+    "start": "cd ./packages/main-app && npm start"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.8.0"
+  }
+}
