@@ -1,4 +1,5 @@
 import React from "react";
+import browser from "../utils";
 
 export interface IEnvironment {
   name: string;
@@ -8,7 +9,7 @@ export interface IEnvironment {
 export const useActiveTab = () => {
   const [activeTab, setActiveTab] = React.useState();
   React.useEffect(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+    browser.tabs.query({ active: true, currentWindow: true }, tabs => {
       setActiveTab(tabs[0]);
     });
   }, []);
@@ -22,7 +23,7 @@ const useSendMessage = (activeTab?: { id: number }) => {
     };
   }
   return (message: any, callback?: (response: any) => void) =>
-    chrome.tabs.sendMessage(activeTab.id, message, callback);
+    browser.tabs.sendMessage(activeTab.id, message, callback);
 };
 
 export const useActionHandlers = (
@@ -39,16 +40,11 @@ export const useActionHandlers = (
     }
   };
 
-  const commitEnveironments = (nextEnveironments: IEnvironment[]) =>
-    sendMessage(
-      {
-        type: "save-enveironments",
-        enveironments: nextEnveironments
-      },
-      (response: { enveironments: IEnvironment[] }) => {
-        saveLocalEnveironments(response.enveironments);
-      }
-    );
+  const commitEnveironments = (nextEnveironments: IEnvironment[]) => {
+    browser.storage.sync.set({ enveironments: nextEnveironments });
+    saveLocalEnveironments(nextEnveironments);
+  };
+
   const onSubmit = (nextEnveironment: { name: string; url: string }) => {
     commitEnveironments([...enveironments, nextEnveironment]);
   };

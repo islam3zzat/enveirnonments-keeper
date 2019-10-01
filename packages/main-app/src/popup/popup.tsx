@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./popup.css";
+import browser from "../utils";
 import EnveironmentForm from "../enveironment-form";
 import EnveironmentsList from "../enveironments-list";
 import { useActionHandlers, useActiveTab, IEnvironment } from "./popup-utils";
@@ -20,7 +21,7 @@ const Popup = () => {
   const activeTab = useActiveTab();
 
   React.useEffect(() => {
-    chrome.storage.sync.get("enveironments", response => {
+    browser.storage.sync.get("enveironments", response => {
       saveLocalEnveironments(response.enveironments);
     });
   }, []);
