@@ -1,6 +1,6 @@
 {
     "name": "Enveirnonments keeper",
-    "version": "1.0",
+    "version": "2.0",
     "description": "Helps people working on multiple enveironments to switch to differen enveironments",
     "permissions": [
         "activeTab",
@@ -27,15 +27,5 @@
         "48": "48-icon.png",
         "128": "128-icon.png"
     },
-    "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "dist/content-script.js"
-            ]
-        }
-    ],
     "manifest_version": 2
 }
