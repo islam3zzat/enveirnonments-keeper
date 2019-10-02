@@ -5,40 +5,40 @@ import Popup from "./popup";
 import * as popupUtils from "./popup-utils";
 
 describe("Popup", () => {
-  describe("with empty enveironments ", () => {
-    it("should show no enveironments message", () => {
+  describe("with empty environments ", () => {
+    it("should show no environments message", () => {
       const { getByText, getByTestId } = render(<Popup />);
       expect(
-        getByText("There are no saved enveironments.")
+        getByText("There are no saved environments.")
       ).toBeInTheDocument();
-      const enveironmentForm = getByTestId("enveironment-form");
-      expect(enveironmentForm).toHaveProperty("open", true);
+      const environmentForm = getByTestId("environment-form");
+      expect(environmentForm).toHaveProperty("open", true);
     });
   });
-  describe("with enveironments ", () => {
-    let enveironment: popupUtils.IEnvironment;
+  describe("with environments ", () => {
+    let environment: popupUtils.IEnvironment;
     beforeAll(() => {
-      enveironment = { name: "Berlin", url: "https://www.berlin.de/" };
+      environment = { name: "Berlin", url: "https://www.berlin.de/" };
       jest
         .spyOn(popupUtils, "useActionHandlers")
         .mockImplementation(result => ({
-          enveironments: [enveironment],
-          commitEnveironments: jest.fn(),
-          deleteEnveironment: jest.fn(),
+          environments: [environment],
+          commitEnvironments: jest.fn(),
+          deleteEnvironment: jest.fn(),
           onSubmit: jest.fn(),
-          saveLocalEnveironments: jest.fn()
+          saveLocalEnvironments: jest.fn()
         }));
       jest.spyOn(popupUtils, "useActiveTab").mockImplementation(() => ({
         id: 1,
         url: "http://localhost:3001/"
       }));
     });
-    it("should show the enveironments message", () => {
+    it("should show the environments message", () => {
       const { getByText, queryAllByText, getByTestId } = render(<Popup />);
-      expect(queryAllByText("There are no saved enveironments.")).toEqual([]);
-      const enveironmentForm = getByTestId("enveironment-form");
-      expect(enveironmentForm).toHaveProperty("open", false);
-      expect(getByText(enveironment.name)).toBeInTheDocument();
+      expect(queryAllByText("There are no saved environments.")).toEqual([]);
+      const environmentForm = getByTestId("environment-form");
+      expect(environmentForm).toHaveProperty("open", false);
+      expect(getByText(environment.name)).toBeInTheDocument();
     });
   });
 });

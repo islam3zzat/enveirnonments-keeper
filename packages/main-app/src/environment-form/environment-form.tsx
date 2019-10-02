@@ -1,24 +1,24 @@
 import React from "react";
 import { Formik, FormikActions } from "formik";
-import styles from "./enveironment-form.css";
-import { IEnvironment, createValidator } from "./enveironment-form-utils";
+import styles from "./environment-form.css";
+import { IEnvironment, createValidator } from "./environment-form-utils";
 
-interface IEnveironmentForm {
-  enveironments: IEnvironment[];
-  onSubmit: (enveironment: { name: string; url: string }) => void;
+interface IEnvironmentForm {
+  environments: IEnvironment[];
+  onSubmit: (environment: { name: string; url: string }) => void;
 }
-const EnveironmentForm: React.FunctionComponent<IEnveironmentForm> = props => {
+const EnvironmentForm: React.FunctionComponent<IEnvironmentForm> = props => {
   const onSubmit = (
-    enveironment: IEnvironment,
+    environment: IEnvironment,
     formik: FormikActions<IEnvironment>
   ) => {
-    props.onSubmit(enveironment);
+    props.onSubmit(environment);
     formik.resetForm();
   };
 
   return (
     <Formik
-      validate={createValidator(props.enveironments)}
+      validate={createValidator(props.environments)}
       validateOnChange={true}
       initialValues={{ name: "", url: "" }}
       onSubmit={onSubmit}
@@ -41,7 +41,7 @@ const EnveironmentForm: React.FunctionComponent<IEnveironmentForm> = props => {
               type="text"
               name="name"
               autoComplete="off"
-              placeholder="Enveironment name"
+              placeholder="Environment name"
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -72,7 +72,7 @@ const EnveironmentForm: React.FunctionComponent<IEnveironmentForm> = props => {
             type="submit"
             disabled={!isValid}
           >
-            Save enveironment
+            Save environment
           </button>
         </form>
       )}
@@ -80,4 +80,4 @@ const EnveironmentForm: React.FunctionComponent<IEnveironmentForm> = props => {
   );
 };
 
-export default EnveironmentForm;
+export default EnvironmentForm;

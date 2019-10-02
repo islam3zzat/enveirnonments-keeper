@@ -1,4 +1,4 @@
-.enveironments-container {
+.environments-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9px;
@@ -8,11 +8,11 @@
   border-radius: 1rem;
 }
 
-.enveironment-link {
+.environment-link {
   transition: font-size 250ms ease-in-out, transform 150ms ease;
 }
 
-.delete-enveironment {
+.delete-environment {
   display: inline-block;
   border: none;
   padding: 0.5rem 1rem;

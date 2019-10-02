@@ -27,37 +27,37 @@ const useSendMessage = (activeTab?: { id: number }) => {
 };
 
 export const useActionHandlers = (
-  updateEnveironmentsCallback?: (enveironments: IEnvironment[]) => void
+  updateEnvironmentsCallback?: (environments: IEnvironment[]) => void
 ) => {
-  const [enveironments, setEnveironments] = React.useState<IEnvironment[]>([]);
+  const [environments, setEnvironments] = React.useState<IEnvironment[]>([]);
   const activeTab = useActiveTab();
   const sendMessage = useSendMessage(activeTab);
 
-  const saveLocalEnveironments = (nextEnveironments: IEnvironment[] = []) => {
-    setEnveironments(nextEnveironments);
-    if (updateEnveironmentsCallback) {
-      updateEnveironmentsCallback(nextEnveironments);
+  const saveLocalEnvironments = (nextEnvironments: IEnvironment[] = []) => {
+    setEnvironments(nextEnvironments);
+    if (updateEnvironmentsCallback) {
+      updateEnvironmentsCallback(nextEnvironments);
     }
   };
 
-  const commitEnveironments = (nextEnveironments: IEnvironment[]) => {
-    browser.storage.sync.set({ enveironments: nextEnveironments });
-    saveLocalEnveironments(nextEnveironments);
+  const commitEnvironments = (nextEnvironments: IEnvironment[]) => {
+    browser.storage.sync.set({ environments: nextEnvironments });
+    saveLocalEnvironments(nextEnvironments);
   };
 
-  const onSubmit = (nextEnveironment: { name: string; url: string }) => {
-    commitEnveironments([...enveironments, nextEnveironment]);
+  const onSubmit = (nextEnvironment: { name: string; url: string }) => {
+    commitEnvironments([...environments, nextEnvironment]);
   };
-  const deleteEnveironment = (enveironmentName: string) => {
-    commitEnveironments(
-      enveironments.filter(({ name }) => enveironmentName !== name)
+  const deleteEnvironment = (environmentName: string) => {
+    commitEnvironments(
+      environments.filter(({ name }) => environmentName !== name)
     );
   };
   return {
     onSubmit,
-    deleteEnveironment,
-    commitEnveironments,
-    enveironments,
-    saveLocalEnveironments
+    deleteEnvironment,
+    commitEnvironments,
+    environments,
+    saveLocalEnvironments
   };
 };

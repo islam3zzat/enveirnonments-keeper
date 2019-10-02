@@ -1,16 +1,16 @@
 import React from "react";
 import { render, fireEvent, wait } from "@testing-library/react";
-import EnveironmentForm from "./enveironment-form";
-import { errorMessages } from "./enveironment-form-utils";
+import EnvironmentForm from "./environment-form";
+import { errorMessages } from "./environment-form-utils";
 
-describe("EnveironmentForm", () => {
+describe("EnvironmentForm", () => {
   describe("with valid values workflow", () => {
     it("should complete the wrokflow without validation errors", async () => {
       const onSubmit = jest.fn();
       const { getByPlaceholderText, getByText, queryAllByText } = render(
-        <EnveironmentForm
+        <EnvironmentForm
           onSubmit={onSubmit}
-          enveironments={[
+          environments={[
             {
               name: "google env",
               url: "https://www.google.de/"
@@ -18,12 +18,12 @@ describe("EnveironmentForm", () => {
           ]}
         />
       );
-      const nameInput = getByPlaceholderText("Enveironment name");
+      const nameInput = getByPlaceholderText("Environment name");
       const urlInput = getByPlaceholderText(
         "Enter URL: e.g https://example.com"
       );
       // initial state
-      expect(getByText("Save enveironment")).toBeDisabled();
+      expect(getByText("Save environment")).toBeDisabled();
       expect(nameInput).toBeInTheDocument();
       expect(urlInput).toBeInTheDocument();
 
@@ -42,13 +42,13 @@ describe("EnveironmentForm", () => {
       expect(
         queryAllByText("Please provide some value for this field.")
       ).toEqual([]);
-      await wait(() => expect(getByText("Save enveironment")).toBeDisabled());
+      await wait(() => expect(getByText("Save environment")).toBeDisabled());
       // After entering valid url
       const nextUrlValue = "https://example.com";
       fireEvent.change(urlInput, { target: { value: nextUrlValue } });
       expect(urlInput).toHaveValue(nextUrlValue);
       await wait(() =>
-        expect(getByText("Save enveironment")).not.toBeDisabled()
+        expect(getByText("Save environment")).not.toBeDisabled()
       );
     });
   });
@@ -56,9 +56,9 @@ describe("EnveironmentForm", () => {
     it("should show validation errors", async () => {
       const onSubmit = jest.fn();
       const { getByPlaceholderText, getByText, queryAllByText } = render(
-        <EnveironmentForm
+        <EnvironmentForm
           onSubmit={onSubmit}
-          enveironments={[
+          environments={[
             {
               name: "google env",
               url: "https://www.google.de/"
@@ -66,12 +66,12 @@ describe("EnveironmentForm", () => {
           ]}
         />
       );
-      const nameInput = getByPlaceholderText("Enveironment name");
+      const nameInput = getByPlaceholderText("Environment name");
       const urlInput = getByPlaceholderText(
         "Enter URL: e.g https://example.com"
       );
       // initial state
-      expect(getByText("Save enveironment")).toBeDisabled();
+      expect(getByText("Save environment")).toBeDisabled();
       expect(nameInput).toBeInTheDocument();
       expect(urlInput).toBeInTheDocument();
 
@@ -93,7 +93,7 @@ describe("EnveironmentForm", () => {
       await wait(() =>
         expect(getByText(errorMessages.duplicateNameError)).toBeInTheDocument()
       );
-      await wait(() => expect(getByText("Save enveironment")).toBeDisabled());
+      await wait(() => expect(getByText("Save environment")).toBeDisabled());
       // after touching the input and leaving without typing
       fireEvent.touchStart(urlInput);
       fireEvent.blur(urlInput);
@@ -107,12 +107,12 @@ describe("EnveironmentForm", () => {
       await wait(() =>
         expect(getByText(errorMessages.invalidUrlError)).toBeInTheDocument()
       );
-      await wait(() => expect(getByText("Save enveironment")).toBeDisabled());
+      await wait(() => expect(getByText("Save environment")).toBeDisabled());
       // After correcting the inputs
       fireEvent.change(nameInput, { target: { value: "archive" } });
       fireEvent.change(urlInput, { target: { value: "https://archive.org/" } });
       await wait(() =>
-        expect(getByText("Save enveironment")).not.toBeDisabled()
+        expect(getByText("Save environment")).not.toBeDisabled()
       );
     });
   });

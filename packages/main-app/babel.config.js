@@ -1,4 +1,4 @@
 // babel.config.js
 module.exports = {
-  presets: ["@enveirnonments-keeper/babel-preset"]
+  presets: ["@environments-keeper/babel-preset"]
 };

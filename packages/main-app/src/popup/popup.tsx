@@ -1,43 +1,43 @@
 import React from "react";
 import styles from "./popup.css";
 import browser from "../utils";
-import EnveironmentForm from "../enveironment-form";
-import EnveironmentsList from "../enveironments-list";
+import EnvironmentForm from "../environment-form";
+import EnvironmentsList from "../environments-list";
 import { useActionHandlers, useActiveTab, IEnvironment } from "./popup-utils";
 
 const Popup = () => {
   const detailsRef = React.useRef() as React.RefObject<HTMLDetailsElement>;
-  const updateEnveironmentsCallback = (nextEnveironments: IEnvironment[]) => {
-    if (detailsRef.current && nextEnveironments.length === 0) {
+  const updateEnvironmentsCallback = (nextEnvironments: IEnvironment[]) => {
+    if (detailsRef.current && nextEnvironments.length === 0) {
       detailsRef.current.open = true;
     }
   };
   const {
     onSubmit,
-    deleteEnveironment,
-    enveironments,
-    saveLocalEnveironments
-  } = useActionHandlers(updateEnveironmentsCallback);
+    deleteEnvironment,
+    environments,
+    saveLocalEnvironments
+  } = useActionHandlers(updateEnvironmentsCallback);
   const activeTab = useActiveTab();
 
   React.useEffect(() => {
-    browser.storage.sync.get("enveironments", response => {
-      saveLocalEnveironments(response.enveironments);
+    browser.storage.sync.get("environments", response => {
+      saveLocalEnvironments(response.environments);
     });
   }, []);
 
   return (
     <div className={styles["popup-container"]}>
-      <details ref={detailsRef} data-testid="enveironment-form">
-        <summary>Add Enveironment</summary>
-        <EnveironmentForm enveironments={enveironments} onSubmit={onSubmit} />
+      <details ref={detailsRef} data-testid="environment-form">
+        <summary>Add Environment</summary>
+        <EnvironmentForm environments={environments} onSubmit={onSubmit} />
       </details>
 
       {activeTab && (
-        <EnveironmentsList
+        <EnvironmentsList
           activeTabUrl={activeTab.url}
-          enveironments={enveironments}
-          deleteEnveironment={deleteEnveironment}
+          environments={environments}
+          deleteEnvironment={deleteEnvironment}
         />
       )}
     </div>

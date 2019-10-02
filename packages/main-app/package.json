@@ -1,5 +1,5 @@
 {
-  "name": "enveirnonments-keeper",
+  "name": "environments-keeper",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "build": "NODE_ENV=production webpack --config config/webpack.config.js"
   },
   "devDependencies": {
-    "@enveirnonments-keeper/babel-preset": "1.0.0",
-    "@enveirnonments-keeper/jest-preset": "1.0.0",
+    "@environments-keeper/babel-preset": "1.0.0",
+    "@environments-keeper/jest-preset": "1.0.0",
     "@testing-library/react": "^9.2.0",
     "@types/chrome": "^0.0.89",
     "@types/jest": "^24.0.18",
