@@ -1,11 +1,11 @@
 {
-  "name": "@enveirnonments-keeper/jest-preset",
+  "name": "@environments-keeper/jest-preset",
   "version": "1.0.0",
   "main": "jest-preset.js",
   "module": "jest-preset.js",
   "license": "MIT",
   "dependencies": {
-    "@enveirnonments-keeper/babel-preset": "1.0.0",
+    "@environments-keeper/babel-preset": "1.0.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.2.0",
     "babel-jest": "^24.9.0",

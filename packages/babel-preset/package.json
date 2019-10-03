@@ -1,5 +1,5 @@
 {
-  "name": "@enveirnonments-keeper/babel-preset",
+  "name": "@environments-keeper/babel-preset",
   "version": "1.0.0",
   "main": "babel-preset.js",
   "module": "babel-preset.js",

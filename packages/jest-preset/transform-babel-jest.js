@@ -1,4 +1,4 @@
-const getBabePresetConfigForMcApp = require("@enveirnonments-keeper/babel-preset");
+const getBabePresetConfigForMcApp = require("@environments-keeper/babel-preset");
 const getJestBabelPreset = require("babel-preset-jest");
 
 const mcAppBabelConfig = getBabePresetConfigForMcApp();
