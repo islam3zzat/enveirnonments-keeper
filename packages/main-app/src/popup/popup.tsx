@@ -1,4 +1,5 @@
 import React from "react";
+import "normalize.css";
 import styles from "./popup.css";
 import browser from "../utils";
 import EnvironmentForm from "../environment-form";

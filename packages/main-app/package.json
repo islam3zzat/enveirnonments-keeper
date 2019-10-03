@@ -35,6 +35,7 @@
   "dependencies": {
     "chrome": "^0.1.0",
     "formik": "^1.5.8",
+    "normalize.css": "^8.0.1",
     "postcss-loader": "^3.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

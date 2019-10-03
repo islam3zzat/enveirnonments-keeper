@@ -44,7 +44,12 @@ module.exports = {
               }
             }
           },
-          "postcss-loader"
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => [require("autoprefixer")]
+            }
+          }
         ]
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
