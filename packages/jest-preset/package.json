@@ -5,7 +5,7 @@
   "module": "jest-preset.js",
   "license": "MIT",
   "dependencies": {
-    "@environments-keeper/babel-preset": "1.0.0",
+    "@environments-keeper/babel-preset": "3.0.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.2.0",
     "babel-jest": "^24.9.0",

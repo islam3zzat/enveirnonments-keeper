@@ -32,19 +32,19 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        loader: "style-loader"
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: "css-loader",
-        options: {
-          modules: {
-            mode: "local",
-            localIdentName: "[path][name]__[local]--[hash:base64:5]"
-          }
-        }
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                mode: "local",
+                localIdentName: "[path][name]__[local]--[hash:base64:5]"
+              }
+            }
+          },
+          "postcss-loader"
+        ]
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {
