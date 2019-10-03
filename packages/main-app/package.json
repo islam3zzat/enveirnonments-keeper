@@ -4,14 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "NODE_ENV=development build-extension config/webpack.config.js",
+    "build": "NODE_ENV=production build-extension config/webpack.config.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "generate-icons": "sh generate-icons.sh",
-    "start": "NODE_ENV=development webpack --config config/webpack.config.js",
-    "build": "NODE_ENV=production webpack --config config/webpack.config.js"
+    "generate-icons": "generate-icons"
   },
   "devDependencies": {
     "@environments-keeper/babel-preset": "3.0.0",
+    "@environments-keeper/extension-scripts": "3.0.0",
     "@environments-keeper/jest-preset": "3.0.0",
     "@testing-library/react": "^9.2.0",
     "@types/chrome": "^0.0.89",
@@ -29,9 +30,7 @@
     "tslint": "^5.20.0",
     "tslint-react": "^4.1.0",
     "tslint-webpack-plugin": "^2.1.0",
-    "typescript": "^3.6.3",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "typescript": "^3.6.3"
   },
   "dependencies": {
     "chrome": "^0.1.0",
